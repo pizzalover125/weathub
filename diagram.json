@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "author": "The Bin - Hack Club",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 64.2, "left": -410, "attrs": {} },
+    { "type": "board-pi-pico-w", "id": "pico", "top": 6.35, "left": -44.45, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "board-ssd1306-0",
+      "top": 118.34,
+      "left": -345.37,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 86.7,
+      "left": -178.2,
+      "attrs": { "temperature": "80", "humidity": "52.5" }
+    },
+    {
+      "type": "wokwi-led-bar-graph",
+      "id": "bargraph1",
+      "top": 91.2,
+      "left": -484.8,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GP4", "board-ssd1306-0:SDA", "yellow", [ "h0" ] ],
+    [ "pico:GP5", "board-ssd1306-0:SCL", "cyan", [ "h0" ] ],
+    [ "board-ssd1306-0:GND", "bb1:tn.7", "black", [ "v0" ] ],
+    [ "board-ssd1306-0:VCC", "bb1:tp.8", "red", [ "v0" ] ],
+    [ "pico:3V3", "bb1:tp.25", "red", [ "h0" ] ],
+    [ "pico:GND.2", "bb1:tn.25", "black", [ "h-105.6", "v9.6" ] ],
+    [ "bb1:27b.j", "bb1:tn.15", "black", [ "v19.2", "h-88" ] ],
+    [ "bb1:24b.j", "bb1:tp.14", "red", [ "v9.6", "h-67.2" ] ],
+    [ "bb1:25b.j", "pico:GP15", "purple", [ "v28.8", "h115.2" ] ],
+    [ "bb1:tn.1", "bargraph1:C1", "black", [ "v0" ] ],
+    [ "bargraph1:C1", "bargraph1:C2", "black", [ "v0", "h9.82", "v9.6" ] ],
+    [ "bargraph1:C2", "bargraph1:C3", "black", [ "h9.82", "v9.6" ] ],
+    [ "bargraph1:C3", "bargraph1:C4", "black", [ "h9.82", "v9.6" ] ],
+    [ "bargraph1:C4", "bargraph1:C5", "black", [ "h9.82", "v9.6" ] ],
+    [ "bargraph1:C5", "bargraph1:C6", "black", [ "h9.82", "v9.59" ] ],
+    [ "bargraph1:C6", "bargraph1:C7", "black", [ "h9.82", "v9.59" ] ],
+    [ "bargraph1:C7", "bargraph1:C8", "black", [ "h9.82", "v9.59" ] ],
+    [ "bargraph1:C8", "bargraph1:C9", "black", [ "h9.82", "v9.59" ] ],
+    [ "bargraph1:C9", "bargraph1:C10", "black", [ "h9.82", "v9.59" ] ],
+    [ "pico:GP0", "bargraph1:A1", "green", [ "h-499.2", "v76.8" ] ],
+    [ "pico:GP2", "bargraph1:A2", "green", [ "h-508.8", "v57.6" ] ],
+    [ "pico:GP6", "bargraph1:A3", "green", [ "v-67.2", "h-441.6" ] ],
+    [ "pico:GP7", "bargraph1:A4", "green", [ "v-76.8", "h-201.6", "v-9.6", "h-240" ] ],
+    [ "pico:GP8", "bargraph1:A5", "green", [ "h-9.6", "v163.2", "h-441.6", "v-144" ] ],
+    [ "pico:GP9", "bargraph1:A6", "green", [ "h-19.2", "v172.8", "h-441.6", "v-9.6" ] ],
+    [ "pico:GP10", "bargraph1:A7", "green", [ "h-28.8", "v163.2", "h-441.6", "v-153.6" ] ],
+    [ "pico:GP11", "bargraph1:A8", "green", [ "h-38.4", "v163.2", "h-441.6", "v-153.6" ] ],
+    [ "pico:GP12", "bargraph1:A9", "green", [ "h-9.6", "v163.24", "h-480", "v-153.6" ] ],
+    [ "pico:GP14", "bargraph1:A10", "green", [ "h0", "v144.04", "h-508.8", "v-153.6" ] ],
+    [ "board-ssd1306-0:GND", "bb1:9t.b", "", [ "$bb" ] ],
+    [ "board-ssd1306-0:VCC", "bb1:10t.b", "", [ "$bb" ] ],
+    [ "board-ssd1306-0:SCL", "bb1:11t.b", "", [ "$bb" ] ],
+    [ "board-ssd1306-0:SDA", "bb1:12t.b", "", [ "$bb" ] ],
+    [ "dht1:VCC", "bb1:24b.h", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb1:25b.h", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb1:26b.h", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb1:27b.h", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
